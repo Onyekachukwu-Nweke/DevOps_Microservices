@@ -2,7 +2,7 @@ juypter:
 	@cd notebooks; PYTHONPATH=".." jupyter notebook api.ipynb
 
 setup:
-	python3 -m venv ~/.pia-aws
+	python3 -m venv venv
 
 env:
 	#Show information about environment
@@ -41,4 +41,4 @@ benchmark-web-sum:
 profile:
 	python3 -m cProfile -s cumtime ./csvcli.py cvsops --file ext/input.csv --groupby last_name --applyname count --func npmedian | less
 
-all: install lint test
+all: setup install lint test
